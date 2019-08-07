@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTableViewCell" rowHeight="173" id="Ymu-O7-zti" customClass="MyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="453" height="173"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ymu-O7-zti" id="aU8-In-wfe">
+                <rect key="frame" x="0.0" y="0.0" width="453" height="172.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRk-yb-Edp">
+                        <rect key="frame" x="367" y="63.5" width="70" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="evM-lX-KDW"/>
+                            <constraint firstAttribute="height" constant="46" id="vpd-dr-AOU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="Follow">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <state key="selected" title="Unfollow">
+                            <color key="titleColor" red="1" green="0.19767182080000001" blue="0.25429007720000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="followAction:" destination="Ymu-O7-zti" eventType="touchUpInside" id="Gnj-3y-tEb"/>
+                        </connections>
+                    </button>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOV-go-wFe">
+                        <rect key="frame" x="16" y="71.5" width="335" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aOV-go-wFe" firstAttribute="leading" secondItem="aU8-In-wfe" secondAttribute="leading" constant="16" id="B0M-hl-rJA"/>
+                    <constraint firstItem="mRk-yb-Edp" firstAttribute="centerY" secondItem="aU8-In-wfe" secondAttribute="centerY" id="Lip-1m-0qa"/>
+                    <constraint firstAttribute="trailing" secondItem="mRk-yb-Edp" secondAttribute="trailing" constant="16" id="MIv-ai-e4y"/>
+                    <constraint firstItem="mRk-yb-Edp" firstAttribute="leading" secondItem="aOV-go-wFe" secondAttribute="trailing" constant="16" id="fmQ-7y-F5O"/>
+                    <constraint firstItem="aOV-go-wFe" firstAttribute="centerY" secondItem="aU8-In-wfe" secondAttribute="centerY" id="ufj-3F-sov"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="followBtn" destination="mRk-yb-Edp" id="326-Kk-fFJ"/>
+                <outlet property="nameField" destination="aOV-go-wFe" id="PMl-E0-5vi"/>
+            </connections>
+            <point key="canvasLocation" x="452.89855072463774" y="-255.46875"/>
+        </tableViewCell>
+    </objects>
+</document>
