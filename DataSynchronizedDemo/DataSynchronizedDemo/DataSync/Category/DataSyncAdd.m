@@ -23,6 +23,13 @@
         [object bindingDataSynchronizedTo:cls keyPath:keyPath IDPath:IDPath onChange:onChange];
     }
 }
+
+- (void)removeDataSynchronized{
+    for (id object in self) {
+        [object removeDataSynchronized];
+    }
+}
+
 @end
 
 @interface NSObject ()
@@ -35,8 +42,13 @@
     [self.yf_ds_manager addDataSynchronizedWith:self keyPath:keyPath IDPath:IDPath onChange:onChange];
 }
 
-- (void)bindingDataSynchronizedTo:(Class)cls keyPath:(NSString *)keyPath IDPath:(NSString *)IDPath onChange:(OnChange)onChange{
-    [self.yf_ds_manager bindingDataSynchronizedObject:self toClass:cls keyPath:keyPath IDPath:IDPath onChange:onChange];
+- (void)bindingDataSynchronizedTo:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange{
+    [self.yf_ds_manager bindingDataSynchronizedObject:self toClass:cls keyPaths:keyPaths IDPath:IDPath onChange:onChange];
+}
+
+- (void)removeDataSynchronized{
+    NSLog(@"DataSyncAdd::%@",self);
+//    [self.yf_ds_manager removeDataSynchronizedWithObject:self];
 }
 
 #pragma mark - setter & getter

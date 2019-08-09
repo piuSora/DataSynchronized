@@ -7,6 +7,7 @@
 //
 
 #import "MyModel.h"
+#import "DataSynchronized.h"
 
 @implementation MyModel
 
@@ -17,6 +18,10 @@
         _isFollow = isFollow;
     }
     return self;
+}
+
+- (void)dealloc{
+    [self removeDataSynchronized];
 }
 
 

@@ -20,9 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
                          IDPath:(NSString *)IDPath
                        onChange:(OnChange)onChange;
 
-- (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPath:(NSString *)keyPath IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
+- (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
 
-- (void)cleanZombieObjectWithCacheKey:(NSString *)cacheKey IDKey:(NSString *)IDKey;
+- (void)cleanDataSyncKVOWithCacheKey:(NSString *)cacheKey IDKey:(NSString *)IDKey;
+- (void)cleanZombieObject:(id)object CacheKey:(NSString *)cacheKey IDKey:(NSString *)IDKey;
 
 @end
 

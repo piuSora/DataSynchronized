@@ -7,9 +7,11 @@
 //
 
 #import "FirstViewController.h"
+#import "SecondViewController.h"
 #import "MyModel.h"
 #import "MyTableViewCell.h"
 #import "DataSynchronized.h"
+#import "PresentViewController.h"
 
 static NSString *cellID = @"MyTableViewCell";
 
@@ -68,6 +70,7 @@ static NSString *cellID = @"MyTableViewCell";
 //did select
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    [self presentViewController:PresentViewController.new animated:true completion:nil];
 }
 
 #pragma mark - action

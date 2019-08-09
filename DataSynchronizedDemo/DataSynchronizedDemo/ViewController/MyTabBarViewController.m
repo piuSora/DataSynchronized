@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     for (UIViewController *vc in self.viewControllers) {
-        UIView *view = vc.view;
+        [vc view];
     }
     // Do any additional setup after loading the view.
 }

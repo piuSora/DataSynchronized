@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MyModel : NSObject
 @property (nonatomic, strong) NSString *myID;
 @property (nonatomic, strong) NSString *myName;
+@property (nonatomic, strong) NSString *myInfo;
 @property (nonatomic, assign) BOOL isFollow;
 
 - (instancetype)initWithMyID:(NSString *)ID myName:(NSString *)name isFollow:(BOOL)isFollow;
