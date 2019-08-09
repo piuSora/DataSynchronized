@@ -35,7 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param IDPath 数据绑定的条件
  @param onChange 数据发生改变的回调
  */
-- (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPath:(NSString *)keyPath IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
+- (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
+
+/**
+ @method
+ @brief iOS11以下必须调用移除监听
+ */
+
+- (void)removeDataSynchronizedWithObject:(id)object;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,21 +7,26 @@
 //
 
 #import "DataSyncModel.h"
+#import "DataSynchronized.h"
 
 
 @implementation DataSyncModel
 
 - (instancetype)initWithObject:(id)object
-                       keyPath:(NSString *)keyPath
+                       keyPaths:(NSDictionary *)keyPaths
                         IDPath:(NSString *)IDPath
                       onChange:(OnChange)onChange{
     if (self = [super init]) {
         _object = object;
-        _keyPath = keyPath;
+        _keyPaths = keyPaths;
         _IDPath = IDPath;
         _onChange = onChange;
     }
     return self;
+}
+
+- (void)dealloc{
+    NSLog(@"SyncModel dealloc");
 }
 
 @end

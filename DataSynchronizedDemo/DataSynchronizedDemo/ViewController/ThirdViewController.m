@@ -23,14 +23,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configView];
-    // Do any additional setup after loading the view.
+//    for (int i = 0; i < 10000; i++) {
+//        [self testing];
+//    }
+}
+
+- (void)testing{
+    MyModel *model = [[MyModel alloc] initWithMyID:@"3" myName:@"Jason" isFollow:true];
+    [model addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
 }
 
 #pragma mark - UI
 
 - (void)configView{
-    self.textField.text = self.data.otherName;
-    self.textField.delegate = self;
+//    self.textField.text = self.data.otherName;
+//    self.textField.delegate = self;
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+//    [self.view addGestureRecognizer:tap];
+}
+
+- (void)tapAction{
+    [self.textField resignFirstResponder];
 }
 
 #pragma mark - delegate & datasource
@@ -52,7 +65,7 @@
         _data = [[OtherModel alloc] initWithID:@"0" name:@"name"];
     }
     __weak typeof(self)weakSelf = self;
-    [_data bindingDataSynchronizedTo:MyModel.class keyPath:@"otherName" IDPath:@"otherID" onChange:^(OtherModel *  _Nonnull model) {
+    [_data bindingDataSynchronizedTo:MyModel.class keyPaths:@{@"myName":@"otherName",@"myInfo":@"otherName"} IDPath:@"otherID" onChange:^(OtherModel * _Nonnull model) {
         weakSelf.textField.text = model.otherName;
     }];
     return _data;

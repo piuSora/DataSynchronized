@@ -24,6 +24,8 @@
 		E92C264B22F91D5900C70EEC /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92C264A22F91D5900C70EEC /* MyTableViewCell.xib */; };
 		E92C265122F9599100C70EEC /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C265022F9599100C70EEC /* MyTabBarViewController.m */; };
 		E92C265422F9700700C70EEC /* OtherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C265322F9700700C70EEC /* OtherModel.m */; };
+		E9F1E78A22FD12DA00009358 /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E78822FD12DA00009358 /* PresentViewController.m */; };
+		E9F1E78B22FD12DA00009358 /* PresentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F1E78922FD12DA00009358 /* PresentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,9 @@
 		E92C265022F9599100C70EEC /* MyTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		E92C265222F9700700C70EEC /* OtherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherModel.h; sourceTree = "<group>"; };
 		E92C265322F9700700C70EEC /* OtherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherModel.m; sourceTree = "<group>"; };
+		E9F1E78722FD12DA00009358 /* PresentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentViewController.h; sourceTree = "<group>"; };
+		E9F1E78822FD12DA00009358 /* PresentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentViewController.m; sourceTree = "<group>"; };
+		E9F1E78922FD12DA00009358 /* PresentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresentViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +160,9 @@
 				E92C264022F81E4C00C70EEC /* ThirdViewController.m */,
 				E92C264F22F9599100C70EEC /* MyTabBarViewController.h */,
 				E92C265022F9599100C70EEC /* MyTabBarViewController.m */,
+				E9F1E78722FD12DA00009358 /* PresentViewController.h */,
+				E9F1E78822FD12DA00009358 /* PresentViewController.m */,
+				E9F1E78922FD12DA00009358 /* PresentViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F1E78B22FD12DA00009358 /* PresentViewController.xib in Resources */,
 				E92C260222F816FB00C70EEC /* LaunchScreen.storyboard in Resources */,
 				E92C264B22F91D5900C70EEC /* MyTableViewCell.xib in Resources */,
 				E92C25FF22F816FB00C70EEC /* Assets.xcassets in Resources */,
@@ -255,6 +264,7 @@
 				E92C260522F816FB00C70EEC /* main.m in Sources */,
 				E92C263B22F81E1C00C70EEC /* FirstViewController.m in Sources */,
 				E92C263722F818EF00C70EEC /* DataSyncModel.m in Sources */,
+				E9F1E78A22FD12DA00009358 /* PresentViewController.m in Sources */,
 				E92C265122F9599100C70EEC /* MyTabBarViewController.m in Sources */,
 				E92C263E22F81E4300C70EEC /* SecondViewController.m in Sources */,
 				E92C264922F822E400C70EEC /* MyModel.m in Sources */,
