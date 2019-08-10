@@ -53,6 +53,7 @@ static NSString *cellID = @"MyTableViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     cell.model = self.data[indexPath.row];
+    [cell setBackgroundColor:UIColor.lightGrayColor];
     return cell;
 }
 //height for row

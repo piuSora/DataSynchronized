@@ -8,7 +8,7 @@
 
 #import "MyTabBarViewController.h"
 
-@interface MyTabBarViewController ()
+@interface MyTabBarViewController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -16,10 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.delegate = self;
     for (UIViewController *vc in self.viewControllers) {
         [vc view];
     }
+}
 
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    CATransition *animation =[CATransition animation];
+    [animation setDuration:0.5];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+    [animation setSubtype:kCATransitionFade];
+    [tabBarController.view.layer addAnimation:animation forKey:@"reveal"];
+    return YES;
 }
 
 @end
