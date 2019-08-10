@@ -26,21 +26,17 @@
 - (IBAction)backAction:(UIButton *)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
-
 - (NSArray *)data{
     if (!_data) {
         NSMutableArray *d = @[].mutableCopy;
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 1000; i++) {
             MyModel *tmp = [[MyModel alloc] initWithMyID:@"4" myName:@"PresentVC" isFollow:true];
             [d addObject:tmp];
         }
         _data = [NSArray arrayWithArray:d];
     }
     CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
-    [_data addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
-//    for (MyModel *tmp in _data) {
-//        [tmp addObserver:self forKeyPath:@"myID" options:NSKeyValueObservingOptionNew context:nil];
-//    }
+//    [_data addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
     CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
     NSLog(@"耗时::::>%.4f",end - start);
     return _data;

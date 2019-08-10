@@ -26,15 +26,23 @@ static NSString *cellID = @"MyTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configView];
-    for (int i = 0; i < 10000; i++) {
+    [self testing];
+//    for (int i = 0; i < 10000; i++) {
 //        [self testing];
-    }
+//    }
 }
 
 - (void)testing{
-    MyModel *model = [[MyModel alloc] initWithMyID:@"3" myName:@"Jason" isFollow:true];
-    [model addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
+    NSMutableArray *tmp = @[].mutableCopy;
+    for (int i = 0 ; i < 1000; i++) {
+        MyModel *model = [[MyModel alloc] initWithMyID:@"3" myName:@"Jason" isFollow:true];
+        [tmp addObject:model];
+    }
+    [tmp addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
+//    MyModel *model = [[MyModel alloc] initWithMyID:@"3" myName:@"Jason" isFollow:true];
+//    [model addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
 }
+
 
 #pragma mark - UI
 

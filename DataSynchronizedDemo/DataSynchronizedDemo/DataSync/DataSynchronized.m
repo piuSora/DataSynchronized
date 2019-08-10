@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *observerData;
 @property (nonatomic, assign) BOOL kvoLock;
-@property (nonatomic, strong) NSMutableDictionary *contextInfo;//管理context，方便释放key:obj的value,value:context的地址
+@property (nonatomic, strong) NSMutableDictionary *contextInfo;//kvo context key:obj的value,value:context的地址
 
 @end
 
@@ -78,8 +78,8 @@ static DataSynchronized *_shared = nil;
         dic[@"SyncData"] = data;
         NSValue *value = [NSValue valueWithNonretainedObject:object];
         [self.contextInfo setObject:dic forKey:value];
-//        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:(__bridge void *)dic];
-        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:nil];
+        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:(__bridge void *)dic];
+//        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:nil];
     }];
 }
 
@@ -114,31 +114,28 @@ static DataSynchronized *_shared = nil;
 
 //observe implementation
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    NSDictionary *info = (__bridge NSDictionary*)context;
-    if (info[@"KvoIdentifier"] == _shared) {//prevent super-class observe called
-        NSString *cacheKey = info[@"CacheKey"];
-        NSString *IDKey = info[@"IDKey"];
-        DataSyncModel *data = info[@"SyncData"];
-        NSArray *bindingPaths = [data.keyPaths allKeysForObject:keyPath];
-        if (!self.kvoLock && cacheKey.length && IDKey.length) {
-            //遍历所有绑定对象
-            for (DataSyncModel *model in self.observerData[cacheKey][IDKey]) {
-                self.kvoLock = true;//prevent recursive lock
-                //遍历绑定对象的所有结点
-                [model.keyPaths enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-                    //多个key绑定同个数据源的情况不处理了 减少复杂度
-                    if ([bindingPaths containsObject:key]) {
-                        [model.object setValue:change[NSKeyValueChangeNewKey] forKeyPath:model.keyPaths[key]];
-                        if (model.onChange) {
-                            model.onChange(model.object);
-                        }
+    NSValue *contextKey = [NSValue valueWithNonretainedObject:object];
+    NSDictionary *info = self.contextInfo[contextKey];
+    NSString *cacheKey = info[@"CacheKey"];
+    NSString *IDKey = info[@"IDKey"];
+    DataSyncModel *data = info[@"SyncData"];
+    NSArray *bindingPaths = [data.keyPaths allKeysForObject:keyPath];
+    if (!self.kvoLock && cacheKey.length && IDKey.length) {
+        //遍历所有绑定对象
+        for (DataSyncModel *model in self.observerData[cacheKey][IDKey]) {
+            self.kvoLock = true;//prevent recursive lock
+            //遍历绑定对象的所有结点
+            [model.keyPaths enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                //多个key绑定同个数据源的情况不处理了 减少复杂度
+                if ([bindingPaths containsObject:key]) {
+                    [model.object setValue:change[NSKeyValueChangeNewKey] forKeyPath:model.keyPaths[key]];
+                    if (model.onChange) {
+                        model.onChange(model.object);
                     }
-                }];
-                self.kvoLock = false;
-            }
+                }
+            }];
+            self.kvoLock = false;
         }
-    }else{
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
