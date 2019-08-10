@@ -24,12 +24,6 @@
     }
 }
 
-- (void)removeDataSynchronized{
-    for (id object in self) {
-        [object removeDataSynchronized];
-    }
-}
-
 @end
 
 @interface NSObject ()
@@ -44,11 +38,6 @@
 
 - (void)bindingDataSynchronizedTo:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange{
     [self.yf_ds_manager bindingDataSynchronizedObject:self toClass:cls keyPaths:keyPaths IDPath:IDPath onChange:onChange];
-}
-
-- (void)removeDataSynchronized{
-    NSLog(@"DataSyncAdd::%@",self);
-//    [self.yf_ds_manager removeDataSynchronizedWithObject:self];
 }
 
 #pragma mark - setter & getter

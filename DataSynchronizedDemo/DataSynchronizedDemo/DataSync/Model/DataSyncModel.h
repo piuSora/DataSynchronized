@@ -16,7 +16,7 @@ typedef void(^_Nullable OnChange)(id model);
 @interface DataSyncModel : NSObject
 
 @property (nonatomic, weak) id object;
-@property (nonatomic, strong) NSDictionary *keyPaths;
+@property (nonatomic, copy) NSDictionary *keyPaths;
 @property (nonatomic, strong) NSString *IDPath;
 @property (nonatomic, strong) OnChange onChange;
 

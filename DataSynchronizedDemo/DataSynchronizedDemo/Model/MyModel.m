@@ -21,7 +21,6 @@
 }
 
 - (void)dealloc{
-    [self removeDataSynchronized];
 }
 
 

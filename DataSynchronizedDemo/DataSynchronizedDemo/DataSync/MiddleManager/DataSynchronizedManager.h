@@ -37,12 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
 
-/**
- @method
- @brief iOS11以下必须调用移除监听
- */
-
-- (void)removeDataSynchronizedWithObject:(id)object;
 @end
 
 NS_ASSUME_NONNULL_END
