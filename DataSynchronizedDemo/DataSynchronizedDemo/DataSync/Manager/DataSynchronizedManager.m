@@ -1,9 +1,9 @@
 //
 //  DataSynchronizedManager.m
-//  AhaIt
+//  DataSynchronizedDemo
 //
 //  Created by 呼哈哈 on 2019/8/1.
-//  Copyright © 2019 zlee. All rights reserved.
+//  Copyright © 2019 piu. All rights reserved.
 //
 
 #import "DataSynchronizedManager.h"
@@ -26,7 +26,7 @@
     self.IDKey = [object valueForKeyPath:IDPath];;
     self.cacheKey = NSStringFromClass([object class]);
     self.keyPaths = @{keyPath:keyPath};
-    [[DataSynchronized sharedInstance] addDataSynchronizedWith:object keyPath:keyPath IDPath:IDPath onChange:onChange];
+    [[DataSynchronizedBase sharedInstance] addDataSynchronizedWith:object keyPath:keyPath IDPath:IDPath onChange:onChange];
     self.object = object;
     objPoint = (__bridge void *)(object);
 }
@@ -35,11 +35,11 @@
     self.cacheKey = NSStringFromClass(cls);
     self.IDKey = [object valueForKeyPath:IDPath];
     self.keyPaths = keyPaths;
-        [[DataSynchronized sharedInstance] bindingDataSynchronizedObject:object toClass:cls keyPaths:keyPaths IDPath:IDPath onChange:onChange];
+        [[DataSynchronizedBase sharedInstance] bindingDataSynchronizedObject:object toClass:cls keyPaths:keyPaths IDPath:IDPath onChange:onChange];
 }
 
 - (void)dealloc{
-    [[DataSynchronized sharedInstance] cleanZombieObject:(__bridge id _Nonnull)(objPoint) CacheKey:self.cacheKey IDKey:self.IDKey];
+    [[DataSynchronizedBase sharedInstance] cleanZombieObject:(__bridge id _Nonnull)(objPoint) CacheKey:self.cacheKey IDKey:self.IDKey];
 }
 
 

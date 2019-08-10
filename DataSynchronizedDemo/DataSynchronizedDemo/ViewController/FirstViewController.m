@@ -11,7 +11,6 @@
 #import "MyModel.h"
 #import "MyTableViewCell.h"
 #import "DataSynchronized.h"
-#import "PresentViewController.h"
 
 static NSString *cellID = @"MyTableViewCell";
 
@@ -26,21 +25,6 @@ static NSString *cellID = @"MyTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configView];
-    [self testing];
-//    for (int i = 0; i < 10000; i++) {
-//        [self testing];
-//    }
-}
-
-- (void)testing{
-    NSMutableArray *tmp = @[].mutableCopy;
-    for (int i = 0 ; i < 1000; i++) {
-        MyModel *model = [[MyModel alloc] initWithMyID:@"3" myName:@"Jason" isFollow:true];
-        [tmp addObject:model];
-    }
-    [tmp addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
-//    MyModel *model = [[MyModel alloc] initWithMyID:@"3" myName:@"Jason" isFollow:true];
-//    [model addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
 }
 
 
@@ -85,7 +69,6 @@ static NSString *cellID = @"MyTableViewCell";
 //did select
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self presentViewController:PresentViewController.new animated:true completion:nil];
 }
 
 #pragma mark - action
@@ -105,9 +88,9 @@ static NSString *cellID = @"MyTableViewCell";
         }
         _data = [NSArray arrayWithArray:array];
     }
-    //在获取到数据后进行数据源绑定,如果有多个字段用逗号间隔
+    //在获取到数据后进行数据源绑定,如果有多个字段用逗号间隔,支持多级路径
     __weak typeof(self)weakSelf = self;
-    [_data addDataSynchronizedKeyPath:@"isFollow,myName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
+    [_data addDataSynchronizedKeyPath:@"isFollow,myName,otherModel.otherName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
         //UI操作
         [weakSelf.tableView reloadData];
     }];

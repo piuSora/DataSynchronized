@@ -41,16 +41,25 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C3-TA-7QS">
+                        <rect key="frame" x="10" y="10" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="aOV-go-wFe" firstAttribute="leading" secondItem="aU8-In-wfe" secondAttribute="leading" constant="16" id="B0M-hl-rJA"/>
                     <constraint firstItem="mRk-yb-Edp" firstAttribute="centerY" secondItem="aU8-In-wfe" secondAttribute="centerY" id="Lip-1m-0qa"/>
                     <constraint firstAttribute="trailing" secondItem="mRk-yb-Edp" secondAttribute="trailing" constant="16" id="MIv-ai-e4y"/>
                     <constraint firstItem="mRk-yb-Edp" firstAttribute="leading" secondItem="aOV-go-wFe" secondAttribute="trailing" constant="16" id="fmQ-7y-F5O"/>
+                    <constraint firstItem="4C3-TA-7QS" firstAttribute="top" secondItem="aU8-In-wfe" secondAttribute="top" constant="10" id="nNh-jc-NPe"/>
+                    <constraint firstItem="4C3-TA-7QS" firstAttribute="leading" secondItem="aU8-In-wfe" secondAttribute="leading" constant="10" id="r8W-9U-Ge1"/>
                     <constraint firstItem="aOV-go-wFe" firstAttribute="centerY" secondItem="aU8-In-wfe" secondAttribute="centerY" id="ufj-3F-sov"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="IDLabel" destination="4C3-TA-7QS" id="3Os-2C-Dbw"/>
                 <outlet property="followBtn" destination="mRk-yb-Edp" id="326-Kk-fFJ"/>
                 <outlet property="nameField" destination="aOV-go-wFe" id="PMl-E0-5vi"/>
             </connections>

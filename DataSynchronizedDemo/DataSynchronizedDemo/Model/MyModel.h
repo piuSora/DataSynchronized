@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OtherModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *myID;
 @property (nonatomic, strong) NSString *myName;
 @property (nonatomic, strong) NSString *myInfo;
+@property (nonatomic, strong) OtherModel *otherModel;
 @property (nonatomic, assign) BOOL isFollow;
 
 - (instancetype)initWithMyID:(NSString *)ID myName:(NSString *)name isFollow:(BOOL)isFollow;

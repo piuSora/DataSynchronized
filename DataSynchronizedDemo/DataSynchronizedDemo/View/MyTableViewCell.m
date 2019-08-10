@@ -11,6 +11,7 @@
 @interface MyTableViewCell ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UIButton *followBtn;
+@property (weak, nonatomic) IBOutlet UILabel *IDLabel;
 
 @end
 
@@ -24,6 +25,7 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     self.model.myName = textField.text;
+    self.model.otherModel.otherName = textField.text;
     return true;
 }
 
@@ -37,6 +39,7 @@
     _model = model;
     self.nameField.text = model.myName;
     self.followBtn.selected = model.isFollow;
+    self.IDLabel.text = model.myID;
 }
 
 - (IBAction)followAction:(UIButton *)sender {

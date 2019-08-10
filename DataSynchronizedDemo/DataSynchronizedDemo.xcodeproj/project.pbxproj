@@ -14,8 +14,8 @@
 		E92C260522F816FB00C70EEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C260422F816FB00C70EEC /* main.m */; };
 		E92C263422F818EF00C70EEC /* DataSyncAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C262B22F818EF00C70EEC /* DataSyncAdd.m */; };
 		E92C263522F818EF00C70EEC /* DataSynchronizedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C262E22F818EF00C70EEC /* DataSynchronizedManager.m */; };
-		E92C263622F818EF00C70EEC /* DataSynchronized.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C263022F818EF00C70EEC /* DataSynchronized.m */; };
-		E92C263722F818EF00C70EEC /* DataSyncModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C263322F818EF00C70EEC /* DataSyncModel.m */; };
+		E92C263622F818EF00C70EEC /* DataSynchronizedBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C263022F818EF00C70EEC /* DataSynchronizedBase.m */; };
+		E92C263722F818EF00C70EEC /* DataSyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C263322F818EF00C70EEC /* DataSyncInfo.m */; };
 		E92C263B22F81E1C00C70EEC /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C263A22F81E1C00C70EEC /* FirstViewController.m */; };
 		E92C263E22F81E4300C70EEC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C263D22F81E4300C70EEC /* SecondViewController.m */; };
 		E92C264122F81E4C00C70EEC /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C264022F81E4C00C70EEC /* ThirdViewController.m */; };
@@ -24,8 +24,6 @@
 		E92C264B22F91D5900C70EEC /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92C264A22F91D5900C70EEC /* MyTableViewCell.xib */; };
 		E92C265122F9599100C70EEC /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C265022F9599100C70EEC /* MyTabBarViewController.m */; };
 		E92C265422F9700700C70EEC /* OtherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C265322F9700700C70EEC /* OtherModel.m */; };
-		E9F1E78A22FD12DA00009358 /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1E78822FD12DA00009358 /* PresentViewController.m */; };
-		E9F1E78B22FD12DA00009358 /* PresentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F1E78922FD12DA00009358 /* PresentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,14 +35,14 @@
 		E92C260122F816FB00C70EEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E92C260322F816FB00C70EEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E92C260422F816FB00C70EEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E92C262922F818EF00C70EEC /* DataSynchronized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSynchronized.h; sourceTree = "<group>"; };
+		E92C262922F818EF00C70EEC /* DataSynchronizedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSynchronizedBase.h; sourceTree = "<group>"; };
 		E92C262B22F818EF00C70EEC /* DataSyncAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSyncAdd.m; sourceTree = "<group>"; };
 		E92C262C22F818EF00C70EEC /* DataSyncAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSyncAdd.h; sourceTree = "<group>"; };
 		E92C262E22F818EF00C70EEC /* DataSynchronizedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSynchronizedManager.m; sourceTree = "<group>"; };
 		E92C262F22F818EF00C70EEC /* DataSynchronizedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSynchronizedManager.h; sourceTree = "<group>"; };
-		E92C263022F818EF00C70EEC /* DataSynchronized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSynchronized.m; sourceTree = "<group>"; };
-		E92C263222F818EF00C70EEC /* DataSyncModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSyncModel.h; sourceTree = "<group>"; };
-		E92C263322F818EF00C70EEC /* DataSyncModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSyncModel.m; sourceTree = "<group>"; };
+		E92C263022F818EF00C70EEC /* DataSynchronizedBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSynchronizedBase.m; sourceTree = "<group>"; };
+		E92C263222F818EF00C70EEC /* DataSyncInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSyncInfo.h; sourceTree = "<group>"; };
+		E92C263322F818EF00C70EEC /* DataSyncInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSyncInfo.m; sourceTree = "<group>"; };
 		E92C263922F81E1C00C70EEC /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		E92C263A22F81E1C00C70EEC /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		E92C263C22F81E4300C70EEC /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -60,9 +58,7 @@
 		E92C265022F9599100C70EEC /* MyTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		E92C265222F9700700C70EEC /* OtherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherModel.h; sourceTree = "<group>"; };
 		E92C265322F9700700C70EEC /* OtherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherModel.m; sourceTree = "<group>"; };
-		E9F1E78722FD12DA00009358 /* PresentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentViewController.h; sourceTree = "<group>"; };
-		E9F1E78822FD12DA00009358 /* PresentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentViewController.m; sourceTree = "<group>"; };
-		E9F1E78922FD12DA00009358 /* PresentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresentViewController.xib; sourceTree = "<group>"; };
+		E9F1E78C22FEA8AD00009358 /* DataSynchronized.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSynchronized.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +109,13 @@
 		E92C262822F818EF00C70EEC /* DataSync */ = {
 			isa = PBXGroup;
 			children = (
-				E92C262922F818EF00C70EEC /* DataSynchronized.h */,
-				E92C263022F818EF00C70EEC /* DataSynchronized.m */,
+				E92C263222F818EF00C70EEC /* DataSyncInfo.h */,
+				E92C263322F818EF00C70EEC /* DataSyncInfo.m */,
+				E92C262922F818EF00C70EEC /* DataSynchronizedBase.h */,
+				E92C263022F818EF00C70EEC /* DataSynchronizedBase.m */,
 				E92C262A22F818EF00C70EEC /* Category */,
-				E92C262D22F818EF00C70EEC /* MiddleManager */,
-				E92C263122F818EF00C70EEC /* Model */,
+				E92C262D22F818EF00C70EEC /* Manager */,
+				E9F1E78C22FEA8AD00009358 /* DataSynchronized.h */,
 			);
 			path = DataSync;
 			sourceTree = "<group>";
@@ -131,22 +129,13 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		E92C262D22F818EF00C70EEC /* MiddleManager */ = {
+		E92C262D22F818EF00C70EEC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				E92C262F22F818EF00C70EEC /* DataSynchronizedManager.h */,
 				E92C262E22F818EF00C70EEC /* DataSynchronizedManager.m */,
 			);
-			path = MiddleManager;
-			sourceTree = "<group>";
-		};
-		E92C263122F818EF00C70EEC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E92C263222F818EF00C70EEC /* DataSyncModel.h */,
-				E92C263322F818EF00C70EEC /* DataSyncModel.m */,
-			);
-			path = Model;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		E92C263822F81DDE00C70EEC /* ViewController */ = {
@@ -160,9 +149,6 @@
 				E92C264022F81E4C00C70EEC /* ThirdViewController.m */,
 				E92C264F22F9599100C70EEC /* MyTabBarViewController.h */,
 				E92C265022F9599100C70EEC /* MyTabBarViewController.m */,
-				E9F1E78722FD12DA00009358 /* PresentViewController.h */,
-				E9F1E78822FD12DA00009358 /* PresentViewController.m */,
-				E9F1E78922FD12DA00009358 /* PresentViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -245,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9F1E78B22FD12DA00009358 /* PresentViewController.xib in Resources */,
 				E92C260222F816FB00C70EEC /* LaunchScreen.storyboard in Resources */,
 				E92C264B22F91D5900C70EEC /* MyTableViewCell.xib in Resources */,
 				E92C25FF22F816FB00C70EEC /* Assets.xcassets in Resources */,
@@ -263,8 +248,7 @@
 				E92C263422F818EF00C70EEC /* DataSyncAdd.m in Sources */,
 				E92C260522F816FB00C70EEC /* main.m in Sources */,
 				E92C263B22F81E1C00C70EEC /* FirstViewController.m in Sources */,
-				E92C263722F818EF00C70EEC /* DataSyncModel.m in Sources */,
-				E9F1E78A22FD12DA00009358 /* PresentViewController.m in Sources */,
+				E92C263722F818EF00C70EEC /* DataSyncInfo.m in Sources */,
 				E92C265122F9599100C70EEC /* MyTabBarViewController.m in Sources */,
 				E92C263E22F81E4300C70EEC /* SecondViewController.m in Sources */,
 				E92C264922F822E400C70EEC /* MyModel.m in Sources */,
@@ -272,7 +256,7 @@
 				E92C265422F9700700C70EEC /* OtherModel.m in Sources */,
 				E92C25F722F816F800C70EEC /* AppDelegate.m in Sources */,
 				E92C263522F818EF00C70EEC /* DataSynchronizedManager.m in Sources */,
-				E92C263622F818EF00C70EEC /* DataSynchronized.m in Sources */,
+				E92C263622F818EF00C70EEC /* DataSynchronizedBase.m in Sources */,
 				E92C264522F8205600C70EEC /* MyTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

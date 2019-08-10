@@ -57,7 +57,12 @@
         _data = [[OtherModel alloc] initWithID:@"0" name:@"name"];
     }
     __weak typeof(self)weakSelf = self;
-    [_data bindingDataSynchronizedTo:MyModel.class keyPaths:@{@"myName":@"otherName",@"myInfo":@"otherName"} IDPath:@"otherID" onChange:^(OtherModel * _Nonnull model) {
+    /*
+     把data(OtherModel)绑定到MyModel类上
+     data.otherName与MyModel.myName绑定
+     将data.othrID作为绑定的改变标识符
+     */
+    [_data bindingDataSynchronizedTo:MyModel.class keyPaths:@{@"myName":@"otherName"} IDPath:@"otherID" onChange:^(OtherModel * _Nonnull model) {
         weakSelf.textField.text = model.otherName;
     }];
     return _data;

@@ -1,16 +1,16 @@
 //
-//  DataSyncModel.m
-//  AhaIt
+//  DataSyncInfo.m
+//  DataSynchronizedDemo
 //
 //  Created by 呼哈哈 on 2019/7/31.
-//  Copyright © 2019 zlee. All rights reserved.
+//  Copyright © 2019 piu. All rights reserved.
 //
 
-#import "DataSyncModel.h"
-#import "DataSynchronized.h"
+#import "DataSyncInfo.h"
+#import "DataSynchronizedBase.h"
 
 
-@implementation DataSyncModel
+@implementation DataSyncInfo
 
 - (instancetype)initWithObject:(id)object
                        keyPaths:(NSDictionary *)keyPaths
@@ -23,9 +23,6 @@
         _onChange = onChange;
     }
     return self;
-}
-
-- (void)dealloc{
 }
 
 @end

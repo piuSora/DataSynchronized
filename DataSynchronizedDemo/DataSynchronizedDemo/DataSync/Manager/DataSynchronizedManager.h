@@ -1,13 +1,13 @@
 //
 //  DataSynchronizedManager.h
-//  AhaIt
+//  DataSynchronizedDemo
 //
 //  Created by 呼哈哈 on 2019/8/1.
-//  Copyright © 2019 zlee. All rights reserved.
+//  Copyright © 2019 piu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "DataSynchronized.h"
+#import "DataSynchronizedBase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  @brief 为不同空间的不同对象进行绑定
  @param object 被绑定的数据源
  @param cls 绑定的数据源
- @param keyPath 进行同步的数据结点多个数据节点用,隔开
+ @param keyPaths 进行同步的数据结点
  @param IDPath 数据绑定的条件
  @param onChange 数据发生改变的回调
  */

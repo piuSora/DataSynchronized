@@ -1,27 +1,26 @@
 //
-//  DataSynchronized.m
-//  AhaIt
+//  DataSynchronizedBase.m
+//  DataSynchronizedDemo
 //
 //  Created by 呼哈哈 on 2019/7/29.
-//  Copyright © 2019 zlee. All rights reserved.
+//  Copyright © 2019 piu. All rights reserved.
 //
 
 
 #import <Foundation/Foundation.h>
-#import "DataSynchronized.h"
-#import <malloc/malloc.h>
+#import "DataSynchronizedBase.h"
 
-@interface DataSynchronized ()
+@interface DataSynchronizedBase ()
 
 @property (nonatomic, strong) NSMutableDictionary *observerData;
 @property (nonatomic, assign) BOOL kvoLock;
-@property (nonatomic, strong) NSMutableDictionary *contextInfo;//kvo context key:obj的value,value:context的地址
+@property (nonatomic, strong) NSMutableDictionary *contextInfo;//kvo context
 
 @end
 
-@implementation DataSynchronized
+@implementation DataSynchronizedBase
 
-static DataSynchronized *_shared = nil;
+static DataSynchronizedBase *_shared = nil;
 
 + (instancetype)sharedInstance{
     static dispatch_once_t onceToken;
@@ -32,7 +31,7 @@ static DataSynchronized *_shared = nil;
 }
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone{
-    return [DataSynchronized sharedInstance];
+    return [DataSynchronizedBase sharedInstance];
 }
 
 - (id)copyWithZone:(NSZone *)zone{
@@ -58,7 +57,7 @@ static DataSynchronized *_shared = nil;
     NSString *cacheKey = NSStringFromClass(cls);
     NSString *IDKey = [object valueForKeyPath:IDPath];
     NSMutableDictionary *subIdMap = self.observerData[cacheKey];
-    NSMutableArray <DataSyncModel *>*dataArray = subIdMap[IDKey];
+    NSMutableArray <DataSyncInfo *>*dataArray = subIdMap[IDKey];
     if (!subIdMap) {
         subIdMap = @{}.mutableCopy;
         self.observerData[cacheKey] = subIdMap;
@@ -71,40 +70,39 @@ static DataSynchronized *_shared = nil;
         return;
     }
     
-    DataSyncModel *data = [[DataSyncModel alloc] initWithObject:object keyPaths:keyPaths IDPath:IDPath onChange:onChange];
+    DataSyncInfo *data = [[DataSyncInfo alloc] initWithObject:object keyPaths:keyPaths IDPath:IDPath onChange:onChange];
     [dataArray addObject:data];
     NSMutableDictionary *dic = @{@"KvoIdentifier":_shared,@"CacheKey":cacheKey,@"IDKey":IDKey}.mutableCopy;
     [keyPaths enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
         dic[@"SyncData"] = data;
         NSValue *value = [NSValue valueWithNonretainedObject:object];
         [self.contextInfo setObject:dic forKey:value];
-        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:(__bridge void *)dic];
-//        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:nil];
+        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:nil];
     }];
 }
 
 -(void)cleanZombieObject:(id)object CacheKey:(NSString *)cacheKey IDKey:(NSString *)IDKey{
-    NSMutableArray <DataSyncModel *>*dataMap = self.observerData[cacheKey][IDKey];
+    NSMutableArray <DataSyncInfo *>*dataMap = self.observerData[cacheKey][IDKey];
     for (int i = 0; i < dataMap.count; i++) {
         if (!dataMap[i].object) {
             [dataMap[i].keyPaths enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 NSValue *value = [NSValue valueWithNonretainedObject:object];
-                [object removeObserver:self forKeyPath:obj context:(__bridge void *)self.contextInfo[value]];
+                [object removeObserver:self forKeyPath:obj];
                 [self.contextInfo removeObjectForKey:value];
             }];
             [dataMap removeObjectAtIndex:i];
             if (!dataMap.count) {
                 [self.observerData[cacheKey] removeObjectForKey:IDKey];
             }
-            if (self.observerData[cacheKey]) {
+            if (![self.observerData[cacheKey] count]) {
                 [self.observerData removeObjectForKey:cacheKey];
             }
         }
     }
 }
 
-- (BOOL)checkDuplicate:(NSMutableArray <DataSyncModel *>*)array object:(id)object{
-    for (DataSyncModel *model in array) {
+- (BOOL)checkDuplicate:(NSMutableArray <DataSyncInfo *>*)array object:(id)object{
+    for (DataSyncInfo *model in array) {
         if (model.object == object) {
             return true;
         }
@@ -118,22 +116,22 @@ static DataSynchronized *_shared = nil;
     NSDictionary *info = self.contextInfo[contextKey];
     NSString *cacheKey = info[@"CacheKey"];
     NSString *IDKey = info[@"IDKey"];
-    DataSyncModel *data = info[@"SyncData"];
+    DataSyncInfo *data = info[@"SyncData"];
     NSArray *bindingPaths = [data.keyPaths allKeysForObject:keyPath];
     if (!self.kvoLock && cacheKey.length && IDKey.length) {
         //遍历所有绑定对象
-        for (DataSyncModel *model in self.observerData[cacheKey][IDKey]) {
+        for (DataSyncInfo *model in self.observerData[cacheKey][IDKey]) {
             self.kvoLock = true;//prevent recursive lock
             //遍历绑定对象的所有结点
             [model.keyPaths enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 //多个key绑定同个数据源的情况不处理了 减少复杂度
                 if ([bindingPaths containsObject:key]) {
                     [model.object setValue:change[NSKeyValueChangeNewKey] forKeyPath:model.keyPaths[key]];
-                    if (model.onChange) {
-                        model.onChange(model.object);
-                    }
                 }
             }];
+            if (model.onChange) {
+                model.onChange(model.object);
+            }
             self.kvoLock = false;
         }
     }

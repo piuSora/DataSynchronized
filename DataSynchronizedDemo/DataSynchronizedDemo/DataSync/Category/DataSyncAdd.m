@@ -1,13 +1,12 @@
 //
 //  DataSyncAdd.m
-//  AhaIt
+//  DataSynchronizedDemo
 //
 //  Created by 呼哈哈 on 2019/7/29.
-//  Copyright © 2019 zlee. All rights reserved.
+//  Copyright © 2019 piu. All rights reserved.
 //
 
 #import "DataSyncAdd.h"
-#import "DataSynchronizedManager.h"
 #import <objc/runtime.h>
 
 @implementation NSArray (DataSynchronized)
@@ -18,9 +17,9 @@
     }
 }
 
-- (void)bindingDataSynchronizedTo:(Class)cls keyPath:(NSString *)keyPath IDPath:(NSString *)IDPath onChange:(OnChange)onChange{
+- (void)bindingDataSynchronizedTo:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange{
     for (id object in self) {
-        [object bindingDataSynchronizedTo:cls keyPath:keyPath IDPath:IDPath onChange:onChange];
+        [object bindingDataSynchronizedTo:cls keyPaths:keyPaths IDPath:IDPath onChange:onChange];
     }
 }
 

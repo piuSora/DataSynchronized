@@ -7,7 +7,7 @@
 //
 
 #import "MyModel.h"
-#import "DataSynchronized.h"
+#import "DataSynchronizedBase.h"
 
 @implementation MyModel
 
@@ -16,6 +16,7 @@
         _myID = ID;
         _myName = name;
         _isFollow = isFollow;
+        _otherModel = [[OtherModel alloc] initWithID:ID name:name];
     }
     return self;
 }
