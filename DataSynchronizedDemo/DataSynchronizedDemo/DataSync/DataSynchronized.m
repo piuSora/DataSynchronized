@@ -78,8 +78,7 @@ static DataSynchronized *_shared = nil;
         dic[@"SyncData"] = data;
         NSValue *value = [NSValue valueWithNonretainedObject:object];
         [self.contextInfo setObject:dic forKey:value];
-//        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:(__bridge void *)dic];
-        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:nil];
+        [data.object addObserver:self forKeyPath:obj options:NSKeyValueObservingOptionNew context:(__bridge void *)dic];
     }];
 }
 
