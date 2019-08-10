@@ -24,8 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)bindingDataSynchronizedTo:(Class)cls keyPath:(NSString *)keyPath IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
 
-- (void)removeDataSynchronized;
-
 @end
 
 @interface NSObject (DataSynchronized)
@@ -40,8 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addDataSynchronizedKeyPath:(NSString *)keyPath IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
 
 - (void)bindingDataSynchronizedTo:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
-
-- (void)removeDataSynchronized;
 
 @end
 

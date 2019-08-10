@@ -12,7 +12,7 @@
 
 @interface PresentViewController ()
 
-@property (nonatomic, strong) MyModel *data;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
@@ -27,11 +27,22 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
-- (MyModel *)data{
+- (NSArray *)data{
     if (!_data) {
-        _data = [[MyModel alloc] initWithMyID:@"4" myName:@"PresentVC" isFollow:true];
+        NSMutableArray *d = @[].mutableCopy;
+        for (int i = 0; i < 5000; i++) {
+            MyModel *tmp = [[MyModel alloc] initWithMyID:@"4" myName:@"PresentVC" isFollow:true];
+            [d addObject:tmp];
+        }
+        _data = [NSArray arrayWithArray:d];
     }
+    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
     [_data addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
+//    for (MyModel *tmp in _data) {
+//        [tmp addObserver:self forKeyPath:@"myID" options:NSKeyValueObservingOptionNew context:nil];
+//    }
+    CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+    NSLog(@"耗时::::>%.4f",end - start);
     return _data;
 }
 

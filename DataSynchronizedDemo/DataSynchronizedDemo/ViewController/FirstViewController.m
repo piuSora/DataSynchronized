@@ -26,7 +26,14 @@ static NSString *cellID = @"MyTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configView];
-    // Do any additional setup after loading the view.
+    for (int i = 0; i < 10000; i++) {
+//        [self testing];
+    }
+}
+
+- (void)testing{
+    MyModel *model = [[MyModel alloc] initWithMyID:@"3" myName:@"Jason" isFollow:true];
+    [model addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:nil];
 }
 
 #pragma mark - UI

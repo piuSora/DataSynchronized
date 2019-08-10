@@ -18,7 +18,7 @@
 
 @implementation DataSynchronizedManager
 {
-    void *p;
+    void *objPoint;
 }
 
 
@@ -28,7 +28,7 @@
     self.keyPaths = @{keyPath:keyPath};
     [[DataSynchronized sharedInstance] addDataSynchronizedWith:object keyPath:keyPath IDPath:IDPath onChange:onChange];
     self.object = object;
-    p = (__bridge void *)(&(*object));
+    objPoint = (__bridge void *)(object);
 }
 
 - (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange{
@@ -38,13 +38,8 @@
         [[DataSynchronized sharedInstance] bindingDataSynchronizedObject:object toClass:cls keyPaths:keyPaths IDPath:IDPath onChange:onChange];
 }
 
-- (void)removeDataSynchronizedWithObject:(id)object{
-    [[DataSynchronized sharedInstance] cleanDataSyncKVOWithCacheKey:self.cacheKey IDKey:self.IDKey];
-}
-
 - (void)dealloc{
-//    [[DataSynchronized sharedInstance] cleanZombieObjectWithCacheKey:self.cacheKey IDKey:self.IDKey];
-    [[DataSynchronized sharedInstance] cleanZombieObject:(__bridge id _Nonnull)(p) CacheKey:self.cacheKey IDKey:self.IDKey];
+    [[DataSynchronized sharedInstance] cleanZombieObject:(__bridge id _Nonnull)(objPoint) CacheKey:self.cacheKey IDKey:self.IDKey];
 }
 
 

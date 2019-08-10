@@ -26,7 +26,6 @@
 }
 
 - (void)dealloc{
-    NSLog(@"SyncModel dealloc");
 }
 
 @end

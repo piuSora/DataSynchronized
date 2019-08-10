@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
 
-- (void)cleanDataSyncKVOWithCacheKey:(NSString *)cacheKey IDKey:(NSString *)IDKey;
 - (void)cleanZombieObject:(id)object CacheKey:(NSString *)cacheKey IDKey:(NSString *)IDKey;
 
 @end
