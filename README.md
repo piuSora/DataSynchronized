@@ -47,5 +47,5 @@ a solution for iOS data synchronization
       return _data;
   ```
 
-  ![DataSyncGif](/Users/huhaha/Desktop/DataSynchronized/DataSyncGif.gif)
+  ![DataSyncGif](https://github.com/piuSora/DataSynchronized/blob/master/DataSyncGif.gif)
 
