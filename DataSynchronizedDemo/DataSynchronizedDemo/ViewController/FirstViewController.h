@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+void TICK_TOCK(void (^ handle)(void));
+
 @interface FirstViewController : UIViewController
 
 @end

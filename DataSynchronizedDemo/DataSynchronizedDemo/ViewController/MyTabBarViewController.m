@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
-    for (UIViewController *vc in self.viewControllers) {
-        [vc view];
-    }
+//    for (UIViewController *vc in self.viewControllers) {
+//        [vc view];
+//    }
 }
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{

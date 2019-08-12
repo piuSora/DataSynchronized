@@ -14,6 +14,14 @@
 
 static NSString *cellID = @"MyTableViewCell";
 
+void TICK_TOCK(void (^ handle)(void)){
+    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+    handle();
+    CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();
+    NSLog(@"this method takes %.4f sec",end - start);
+}
+
+
 @interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *data;
@@ -24,7 +32,8 @@ static NSString *cellID = @"MyTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configView];
+    [self profile];
+//    [self configView];
 }
 
 
@@ -74,6 +83,20 @@ static NSString *cellID = @"MyTableViewCell";
 #pragma mark - action
 
 #pragma mark - method & utils
+//profile
+- (void)profile{
+    NSMutableArray *tmp = [NSMutableArray array];
+    for (int i = 0; i < 10000; i++) {
+        MyModel *myModel = [[MyModel alloc] initWithMyID:[NSString stringWithFormat:@"%d",i] myName:[NSString stringWithFormat:@"%d",i] isFollow:true];
+        [tmp addObject:myModel];
+    }
+    self.data = [NSArray arrayWithArray:tmp];
+    TICK_TOCK(^{
+        [self.data addDataSynchronizedKeyPath:@"myName" IDPath:@"myID" onChange:^(id  _Nonnull model) {
+        }];
+    });
+    
+}
 
 #pragma mark - net request
 
@@ -98,3 +121,5 @@ static NSString *cellID = @"MyTableViewCell";
 }
 
 @end
+
+
