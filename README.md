@@ -1,7 +1,7 @@
 # DataSynchronized
 a solution for iOS data synchronization
 
-#### What for
+## What for
 
 实现本地数据双向绑定，修改一处数据，其他数据自动同步的功能。主要解决有数据同步需求但采用Notification管理开发和维护都很不友好，重新拉取网络请求不方便（比如有分页）且有延时的问题.
 
