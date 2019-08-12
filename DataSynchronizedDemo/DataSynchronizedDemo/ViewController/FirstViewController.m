@@ -32,8 +32,8 @@ void TICK_TOCK(void (^ handle)(void)){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self profile];
-//    [self configView];
+    [self configView];
+    //    [self profile];
 }
 
 
