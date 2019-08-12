@@ -46,5 +46,5 @@ a solution for iOS data synchronization
       }];
       return _data;
   ```
-  <img src="https://github.com/piuSora/DataSynchronized/blob/master/DataSyncGif.gif" width = "300" height = "200" alt="DataSyncGif" align=center />
+  <img src="https://github.com/piuSora/DataSynchronized/blob/master/DataSyncGif.gif" width = "50%" height = "50%" alt="DataSyncGif" align=center />
 
