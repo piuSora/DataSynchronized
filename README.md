@@ -58,7 +58,7 @@ iOS开发本地数据同步的解决方案
   class MyModel: NSObject {
     @objc dynamic var myID : String?
     @objc dynamic var myName : String?
-}
+  }
   ```
   * 手动引入文件需要桥接，然后正常使用
   ```swift
