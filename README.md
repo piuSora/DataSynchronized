@@ -50,7 +50,7 @@ iOS开发本地数据同步的解决方案
       return _data;
   ```
   <div  align="center">    
-  <img src="DocAssets/DataSyncGif.gif" width = "45%" height = "45%" alt="DataSyncGif" align=center />
+  <img src="DocAssets/dataSyncGif.gif" width = "45%" height = "45%" alt="DataSyncGif" align=center />
   </div>
 
 ## Profile
