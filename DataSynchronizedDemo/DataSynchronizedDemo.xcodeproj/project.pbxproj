@@ -24,6 +24,7 @@
 		E92C264B22F91D5900C70EEC /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92C264A22F91D5900C70EEC /* MyTableViewCell.xib */; };
 		E92C265122F9599100C70EEC /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C265022F9599100C70EEC /* MyTabBarViewController.m */; };
 		E92C265422F9700700C70EEC /* OtherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C265322F9700700C70EEC /* OtherModel.m */; };
+		E9D7DFE02302AC460064C22E /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D7DFDE2302AC460064C22E /* MyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		E92C265022F9599100C70EEC /* MyTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTabBarViewController.m; sourceTree = "<group>"; };
 		E92C265222F9700700C70EEC /* OtherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherModel.h; sourceTree = "<group>"; };
 		E92C265322F9700700C70EEC /* OtherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherModel.m; sourceTree = "<group>"; };
+		E9D7DFDE2302AC460064C22E /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		E9D7DFDF2302AC460064C22E /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		E9F1E78C22FEA8AD00009358 /* DataSynchronized.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSynchronized.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +144,8 @@
 		E92C263822F81DDE00C70EEC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E9D7DFDF2302AC460064C22E /* MyViewController.h */,
+				E9D7DFDE2302AC460064C22E /* MyViewController.m */,
 				E92C263922F81E1C00C70EEC /* FirstViewController.h */,
 				E92C263A22F81E1C00C70EEC /* FirstViewController.m */,
 				E92C263C22F81E4300C70EEC /* SecondViewController.h */,
@@ -251,6 +256,7 @@
 				E92C263722F818EF00C70EEC /* DataSyncInfo.m in Sources */,
 				E92C265122F9599100C70EEC /* MyTabBarViewController.m in Sources */,
 				E92C263E22F81E4300C70EEC /* SecondViewController.m in Sources */,
+				E9D7DFE02302AC460064C22E /* MyViewController.m in Sources */,
 				E92C264922F822E400C70EEC /* MyModel.m in Sources */,
 				E92C264122F81E4C00C70EEC /* ThirdViewController.m in Sources */,
 				E92C265422F9700700C70EEC /* OtherModel.m in Sources */,

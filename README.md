@@ -10,10 +10,11 @@ iOS开发本地数据同步的解决方案
 
 实现本地数据双向绑定，修改一处数据，其他数据自动同步的功能。主要解决有数据同步需求但采用Notification不易于开发和维护，重新拉取网络数据不方便（比如有分页）且有延时的问题.
 
-## Featured
+## Features
 
 * 一行代码调用，数据双向绑定，一处修改，其他绑定数据自动同步
 * 内存占用小，绑定耗时短
+* 低入侵，不使用hook、+load等方法
 * 采用kvo实现，但调用者无需关心内存以及监听的释放
 * 内存依赖于绑定的model，model dealloc时自动释放内存和监听移除
 * 数据路径加载采用kvc实现，支持多级路径
@@ -21,7 +22,15 @@ iOS开发本地数据同步的解决方案
 
 ## How To Use
 
+### Manually
+
 * clone并将```DataSync```文件夹拖入项目
+
+### Pod
+
+*TODO . . .*
+
+### Coding
 
 * 在需要绑定数据处```import "DataSynchronized.h"```
 
@@ -51,6 +60,7 @@ iOS开发本地数据同步的解决方案
       }];
       return _data;
   ```
+  
 * Swift调用
   
   * 由于用到kvc和kvo所以在swift上使用稍微麻烦，需要在model每个属性前加上```@objc dynamic```
@@ -67,6 +77,7 @@ iOS开发本地数据同步的解决方案
     print(myModel.myName!,myModel.myID!)
   }
   ```
+* 详细使用方法请参考demo
   
   <div  align="center">    
   <img src="DocAssets/dataSyncGif.gif" width = "45%" height = "45%" alt="DataSyncGif" align=center />
