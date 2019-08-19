@@ -8,7 +8,6 @@
 
 #import "FirstViewController.h"
 #import "SecondViewController.h"
-#import "MyViewController.h"
 #import "MyModel.h"
 #import "MyTableViewCell.h"
 #import "DataSynchronized.h"
@@ -79,9 +78,6 @@ void TICK_TOCK(void (^ handle)(void)){
 //did select
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    MyViewController *vc = [MyViewController new];
-//    [self pushViewController:vc animated:true];
-    [self presentViewController:vc animated:true completion:nil];
 }
 
 #pragma mark - action
