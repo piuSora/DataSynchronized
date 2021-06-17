@@ -16,13 +16,17 @@
                        keyPaths:(NSDictionary *)keyPaths
                         IDPath:(NSString *)IDPath
                       onChange:(OnChange)onChange{
+    return [self initWithObject:object keyPaths:keyPaths IDPath:IDPath isPenetrate:true onChange:onChange];
+}
+
+- (instancetype)initWithObject:(id)object keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange {
     if (self = [super init]) {
         _object = object;
         _keyPaths = keyPaths;
         _IDPath = IDPath;
+        _isPenetrate = isPenetrate;
         _onChange = onChange;
     }
     return self;
 }
-
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86156B9B267B45FA00BDC995 /* SubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86156B9A267B45FA00BDC995 /* SubModel.m */; };
+		86156B9E267B464700BDC995 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86156B9D267B464700BDC995 /* DetailViewController.m */; };
 		E92C25F722F816F800C70EEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E92C25F622F816F800C70EEC /* AppDelegate.m */; };
 		E92C25FD22F816F800C70EEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E92C25FB22F816F800C70EEC /* Main.storyboard */; };
 		E92C25FF22F816FB00C70EEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E92C25FE22F816FB00C70EEC /* Assets.xcassets */; };
@@ -27,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86156B99267B45FA00BDC995 /* SubModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubModel.h; sourceTree = "<group>"; };
+		86156B9A267B45FA00BDC995 /* SubModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubModel.m; sourceTree = "<group>"; };
+		86156B9C267B464700BDC995 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		86156B9D267B464700BDC995 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		E92C25F222F816F800C70EEC /* DataSynchronizedDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataSynchronizedDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92C25F522F816F800C70EEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E92C25F622F816F800C70EEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 				E92C264022F81E4C00C70EEC /* ThirdViewController.m */,
 				E92C264F22F9599100C70EEC /* MyTabBarViewController.h */,
 				E92C265022F9599100C70EEC /* MyTabBarViewController.m */,
+				86156B9C267B464700BDC995 /* DetailViewController.h */,
+				86156B9D267B464700BDC995 /* DetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -170,6 +178,8 @@
 				E92C264822F822E400C70EEC /* MyModel.m */,
 				E92C265222F9700700C70EEC /* OtherModel.h */,
 				E92C265322F9700700C70EEC /* OtherModel.m */,
+				86156B99267B45FA00BDC995 /* SubModel.h */,
+				86156B9A267B45FA00BDC995 /* SubModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,9 +260,11 @@
 				E92C263B22F81E1C00C70EEC /* FirstViewController.m in Sources */,
 				E92C263722F818EF00C70EEC /* DataSyncInfo.m in Sources */,
 				E92C265122F9599100C70EEC /* MyTabBarViewController.m in Sources */,
+				86156B9E267B464700BDC995 /* DetailViewController.m in Sources */,
 				E92C263E22F81E4300C70EEC /* SecondViewController.m in Sources */,
 				E92C264922F822E400C70EEC /* MyModel.m in Sources */,
 				E92C264122F81E4C00C70EEC /* ThirdViewController.m in Sources */,
+				86156B9B267B45FA00BDC995 /* SubModel.m in Sources */,
 				E92C265422F9700700C70EEC /* OtherModel.m in Sources */,
 				E92C25F722F816F800C70EEC /* AppDelegate.m in Sources */,
 				E92C263522F818EF00C70EEC /* DataSynchronizedManager.m in Sources */,
@@ -400,7 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22Z66YY952;
+				DEVELOPMENT_TEAM = 6DT57K24F5;
 				INFOPLIST_FILE = DataSynchronizedDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

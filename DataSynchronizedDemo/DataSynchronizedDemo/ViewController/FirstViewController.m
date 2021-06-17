@@ -7,10 +7,11 @@
 //
 
 #import "FirstViewController.h"
-#import "SecondViewController.h"
 #import "MyModel.h"
 #import "MyTableViewCell.h"
 #import "DataSynchronized.h"
+
+#import "DetailViewController.h"
 
 static NSString *cellID = @"MyTableViewCell";
 
@@ -77,7 +78,11 @@ void TICK_TOCK(void (^ handle)(void)){
 }
 //did select
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:true];
+//    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    DetailViewController *detailVC = [[DetailViewController alloc] init];
+    detailVC.orignModel = self.data[indexPath.row];
+    [self presentViewController:detailVC animated:true completion:^{
+    }];
 }
 
 #pragma mark - action
