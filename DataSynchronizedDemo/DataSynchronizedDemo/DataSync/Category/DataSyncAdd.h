@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param onChange 数据发生改变的回调
 - (void)addDataSynchronizedKeyPath:(NSString *)keyPath IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange;
 
-/// 遍历数组对象添加数据绑定（相同Model）
+/// 遍历数组对象添加数据绑定（不同Model）
 /// @param cls 被绑定的类
 /// @param keyPaths 同步的数据路径:key为被绑定对象的路径，value为绑定对象的路径
 /// @param IDPath 数据绑定的条件
@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param onChange 数据发生改变的回调
 - (void)addDataSynchronizedKeyPath:(NSString *)keyPath IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange;
 
-/// 遍历数组对象添加数据绑定（相同Model）
+/// 遍历数组对象添加数据绑定（不同Model）
 /// @param cls 被绑定的类
 /// @param keyPaths 同步的数据路径:key为被绑定对象的路径，value为绑定对象的路径
 /// @param IDPath 数据绑定的条件
