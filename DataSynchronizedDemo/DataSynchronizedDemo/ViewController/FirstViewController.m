@@ -111,18 +111,19 @@ void TICK_TOCK(void (^ handle)(void)){
 -(NSArray *)data{
     if (!_data) {
         NSMutableArray *array = @[].mutableCopy;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             MyModel *tmp = [[MyModel alloc] initWithMyID:[NSString stringWithFormat:@"%d",i] myName:[NSString stringWithFormat:@"Jason Derulo NO.%d",i] isFollow:false];
             [array addObject:tmp];
         }
         _data = [NSArray arrayWithArray:array];
     }
-    //在获取到数据后进行数据源绑定,如果有多个字段用逗号间隔,支持多级路径
-    __weak typeof(self)weakSelf = self;
-    [_data addDataSynchronizedKeyPath:@"isFollow,myName,otherModel.otherName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
-        //UI操作
-        [weakSelf.tableView reloadData];
-    }];
+//    //在获取到数据后进行数据源绑定,如果有多个字段用逗号间隔,支持多级路径
+//    __weak typeof(self)weakSelf = self;
+//    [_data addDataSynchronizedKeyPath:@"isFollow,myName,otherModel.otherName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
+//        //UI操作
+//        NSLog(@"5fzshthk5m %@",model.myID);
+//        [weakSelf.tableView reloadData];
+//    }];
     return _data;
 }
 

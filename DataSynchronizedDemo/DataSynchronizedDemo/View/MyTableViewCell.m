@@ -7,6 +7,7 @@
 //
 
 #import "MyTableViewCell.h"
+#import "DataSynchronized.h"
 
 @interface MyTableViewCell ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -40,6 +41,12 @@
     self.nameField.text = model.myName;
     self.followBtn.selected = model.isFollow;
     self.IDLabel.text = model.myID;
+    //在获取到数据后进行数据源绑定,如果有多个字段用逗号间隔,支持多级路径
+    __weak typeof(self)weakSelf = self;
+    [model addDataSynchronizedKeyPath:@"isFollow,myName,otherModel.otherName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
+        //UI操作
+        NSLog(@"5fzshthk5m %@",model.myID);
+    }];
 }
 
 - (IBAction)followAction:(UIButton *)sender {
