@@ -60,6 +60,7 @@ void TICK_TOCK(void (^ handle)(void)){
 //cell for
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    cell.backgroundColor = UIColor.lightGrayColor;
     cell.model = self.data[indexPath.row];
     return cell;
 }
