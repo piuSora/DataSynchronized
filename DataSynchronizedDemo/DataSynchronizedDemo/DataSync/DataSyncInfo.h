@@ -18,9 +18,13 @@ typedef void(^_Nullable OnChange)(id model);
 @property (nonatomic, weak) id object;
 @property (nonatomic, copy) NSDictionary *keyPaths;
 @property (nonatomic, strong) NSString *IDPath;
+/// 是否穿透变更到父类，默认为false
+@property (nonatomic) BOOL isPenetrate;
 @property (nonatomic, strong) OnChange onChange;
 
 - (instancetype)initWithObject:(id)object keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
+
+- (instancetype)initWithObject:(id)object keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange;
 
 @end
 

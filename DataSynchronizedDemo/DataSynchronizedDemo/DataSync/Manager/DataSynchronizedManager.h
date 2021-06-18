@@ -37,6 +37,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange;
 
+- (void)addDataSynchronizedWith:(id)object
+                        keyPath:(NSString *)keyPath
+                         IDPath:(NSString *)IDPath
+                    isPenetrate:(BOOL)isPenetrate
+                       onChange:(OnChange)onChange;
+
+- (void)bindingDataSynchronizedObject:(id)object toClass:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange;
+
 @end
 
 NS_ASSUME_NONNULL_END

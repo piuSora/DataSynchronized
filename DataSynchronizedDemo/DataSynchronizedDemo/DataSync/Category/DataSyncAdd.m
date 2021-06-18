@@ -23,6 +23,18 @@
     }
 }
 
+- (void)addDataSynchronizedKeyPath:(NSString *)keyPath IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange {
+    for (id object in self) {
+        [object addDataSynchronizedKeyPath:keyPath IDPath:IDPath isPenetrate:isPenetrate onChange:onChange];
+    }
+}
+
+- (void)bindingDataSynchronizedTo:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange {
+    for (id object in self) {
+        [object bindingDataSynchronizedTo:cls keyPaths:keyPaths IDPath:IDPath isPenetrate:isPenetrate onChange:onChange];
+    }
+}
+
 @end
 
 @interface NSObject ()
@@ -37,6 +49,14 @@
 
 - (void)bindingDataSynchronizedTo:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath onChange:(OnChange)onChange{
     [self.yf_ds_manager bindingDataSynchronizedObject:self toClass:cls keyPaths:keyPaths IDPath:IDPath onChange:onChange];
+}
+
+- (void)addDataSynchronizedKeyPath:(NSString *)keyPath IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange {
+    [self.yf_ds_manager addDataSynchronizedWith:self keyPath:keyPath IDPath:IDPath isPenetrate:isPenetrate onChange:onChange];
+}
+
+- (void)bindingDataSynchronizedTo:(Class)cls keyPaths:(NSDictionary *)keyPaths IDPath:(NSString *)IDPath isPenetrate:(BOOL)isPenetrate onChange:(OnChange)onChange {
+    [self.yf_ds_manager bindingDataSynchronizedObject:self toClass:cls keyPaths:keyPaths IDPath:IDPath isPenetrate:isPenetrate onChange:onChange];
 }
 
 #pragma mark - setter & getter
