@@ -83,18 +83,18 @@ static NSString *cellID = @"MyTableViewCell";
 -(NSArray *)data{
     if (!_data) {
         NSMutableArray *array = @[].mutableCopy;
-        for (int i = 0; i < 10; i+=2) {
+        for (int i = 0; i < 20; i+=1) {
             MyModel *tmp = [[MyModel alloc] initWithMyID:[NSString stringWithFormat:@"%d",i] myName:[NSString stringWithFormat:@"Jason Derulo NO.%d",i] isFollow:false];
             [array addObject:tmp];
         }
         _data = [NSArray arrayWithArray:array];
     }
     //在获取到数据后进行数据源绑定,如果有多个字段用逗号间隔,支持嵌套路径
-    __weak typeof(self)weakSelf = self;
-    [_data addDataSynchronizedKeyPath:@"isFollow,myName,otherModel.otherName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
-        //UI操作
-        [weakSelf.tableView reloadData];
-    }];
+//    __weak typeof(self)weakSelf = self;
+//    [_data addDataSynchronizedKeyPath:@"isFollow,myName,otherModel.otherName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
+//        //UI操作
+//        [weakSelf.tableView reloadData];
+//    }];
     return _data;
 }
 

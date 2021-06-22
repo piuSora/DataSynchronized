@@ -45,8 +45,12 @@
     __weak typeof(self)weakSelf = self;
     [model addDataSynchronizedKeyPath:@"isFollow,myName,otherModel.otherName" IDPath:@"myID" onChange:^(MyModel *  _Nonnull model) {
         //UI操作
-        NSLog(@"5fzshthk5m %@",model.myID);
+        weakSelf.nameField.text = model.myName;
+        weakSelf.followBtn.selected = model.isFollow;
+        weakSelf.IDLabel.text = model.myID;
+        NSLog(@"5fzshthk5m %@,%@",model.myID,weakSelf.model.myID);
     }];
+    
 }
 
 - (IBAction)followAction:(UIButton *)sender {

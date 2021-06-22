@@ -49,7 +49,8 @@ void TICK_TOCK(void (^ handle)(void)){
 
 #pragma mark - delegate & datasource
 
-#pragma mark - tableview datasource & delegate
+#pragma mark - tableviewadatasource & delegate
+
 //number of section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
